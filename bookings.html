@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | Molka Lodge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #022c22; color: white; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        
+        .glass-nav {
+            background: rgba(2, 44, 34, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .booking-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .img-container {
+            position: relative;
+            background: linear-gradient(45deg, #064e3b, #022c22);
+            overflow: hidden;
+            border-radius: 1.25rem;
+            height: 110px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .booking-card:hover .img-container img {
+            transform: scale(1.1);
+        }
+
+        .input-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .input-glass:focus {
+            border-color: #34d399;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+
+        select option { background: #022c22; color: white; }
+        input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.5; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; animation: fadeInUp 1s ease forwards; }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 glass-nav py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-emerald-400 uppercase">
+                Molka <span class="text-white font-light">Lodge</span>
+            </a>
+            <div class="hidden lg:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.3em]">
+                <a href="index.html" class="hover:text-emerald-400 transition">Home</a>
+                <a href="rooms.html" class="hover:text-emerald-400 transition">Rooms</a>
+                <a href="restaurant.html" class="hover:text-emerald-400 transition">Restaurant</a>
+                <a href="conference.html" class="hover:text-emerald-400 transition">Conference</a>
+            </div>
+            <div class="flex items-center space-x-2 text-emerald-400">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span class="text-[9px] uppercase font-bold tracking-widest">Verified System</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-12 text-center px-6">
+        <h1 class="text-5xl lg:text-7xl font-bold reveal">Secure Your <span class="italic text-emerald-400">Stay</span></h1>
+        <p class="text-emerald-500/60 uppercase tracking-[0.5em] text-[10px] mt-4 reveal">Highlands Logistics Trade-Hub Partner</p>
+    </header>
+
+    <!-- Booking & Gallery Grid -->
+    <section class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- FORM SECTION -->
+            <div class="lg:col-span-2 booking-card rounded-[2.5rem] p-8 md:p-10 reveal">
+                <form action="https://formspree.io/f/mykowrjv" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Full Name</label>
+                            <input type="text" name="Full Name" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" placeholder="John Doe" required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Email Address</label>
+                            <input type="email" name="Email" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Phone / WhatsApp</label>
+                            <input type="tel" name="Contact No" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" placeholder="+675..." required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Organization</label>
+                            <input type="text" name="Organization" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" placeholder="Optional">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Room Type</label>
+                            <select name="Room Type" class="input-glass w-full px-6 py-4 rounded-2xl text-sm appearance-none" required>
+                                <option value="" disabled selected>Choose Accommodation...</option>
+                                <option value="White House Unit (K550)">White House Unit (5x Rooms) — K550/night</option>
+                                <option value="Master Room (K450)">Master Room — K450/night</option>
+                                <option value="Self-Contained Unit (K250)">Self-Contained Unit — K250/night</option>
+                                <option value="Twin Shared Room (K130)">Twin Shared Room — K130/night</option>
+                                <option value="Single Room (K90)">Single Room — K90/night</option>
+                                <option value="Conference Room (K550)">Conference Room — K550/day</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Check-in Date</label>
+                            <input type="date" name="Check-in Date" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" required>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[9px] uppercase text-emerald-500/60 tracking-widest ml-2">Special Notes</label>
+                        <textarea name="Notes" rows="3" class="input-glass w-full px-6 py-4 rounded-2xl text-sm" placeholder="Anything else we should know?"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 py-5 rounded-2xl font-bold uppercase tracking-widest text-xs transition-all shadow-lg shadow-emerald-500/20">
+                        Confirm & Send Booking Request
+                    </button>
+                </form>
+            </div>
+
+            <!-- RIGHT SIDE GALLERY -->
+            <div class="grid grid-cols-1 gap-4">
+                <div class="booking-card p-3 rounded-[1.5rem] reveal" style="animation-delay: 0.1s">
+                    <div class="img-container">
+                        <img src="images/room-1.jpg" alt="White House" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <p class="text-[9px] uppercase font-bold text-center mt-2 text-emerald-400 tracking-widest">White House Unit</p>
+                </div>
+
+                <div class="booking-card p-3 rounded-[1.5rem] reveal" style="animation-delay: 0.2s">
+                    <div class="img-container">
+                        <img src="images/master.jpg" alt="Master Room" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <p class="text-[9px] uppercase font-bold text-center mt-2 text-emerald-400 tracking-widest">Master Room</p>
+                </div>
+
+                <div class="booking-card p-3 rounded-[1.5rem] reveal" style="animation-delay: 0.3s">
+                    <div class="img-container">
+                        <img src="images/room-2.jpg" alt="Self-Contained" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <p class="text-[9px] uppercase font-bold text-center mt-2 text-emerald-400 tracking-widest">Self-Contained</p>
+                </div>
+
+                <div class="booking-card p-3 rounded-[1.5rem] reveal" style="animation-delay: 0.4s">
+                    <div class="img-container">
+                        <img src="images/room-4.jpg" alt="Twin Share" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <p class="text-[9px] uppercase font-bold text-center mt-2 text-emerald-400 tracking-widest">Twin Shared</p>
+                </div>
+
+                <div class="booking-card p-3 rounded-[1.5rem] reveal" style="animation-delay: 0.5s">
+                    <div class="img-container">
+                        <img src="images/conference.jpg" alt="Conference" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <p class="text-[9px] uppercase font-bold text-center mt-2 text-emerald-400 tracking-widest">Conference Space</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#011a14] py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <a href="index.html" class="text-xl font-bold tracking-tighter text-emerald-400 uppercase">
+                        Molka <span class="text-white font-light">Lodge</span>
+                    </a>
+                    <p class="text-[9px] uppercase tracking-widest text-slate-500 mt-2">Part of the Highlands Logistics Trade-Hub</p>
+                </div>
+                
+                <div class="flex space-x-6 text-slate-500">
+                    <a href="#" class="hover:text-emerald-400 transition"><i data-lucide="phone" class="w-4 h-4"></i></a>
+                    <a href="#" class="hover:text-emerald-400 transition"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                    <a href="#" class="hover:text-emerald-400 transition"><i data-lucide="map-pin" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-white/5 text-center">
+                <p class="text-[9px] uppercase tracking-[0.8em] text-slate-600">© 2026 Molka Lodge • Minj Town • Jiwaka</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
